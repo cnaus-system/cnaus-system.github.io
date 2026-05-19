@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="CNAUS structures AI governance evidence into reproducible evidence bundles, validation reports, and machine-readable records."/>
-  <title>CNAUS — AI Governance Evidence</title>
+  <meta name="description" content="CNAUS helps AI companies produce audit-ready compliance evidence. We structure and verify the underlying proof so audits become reproducible instead of narrative-based."/>
+  <meta property="og:title" content="CNAUS — Verifiable AI Compliance Evidence"/>
+  <meta property="og:description" content="CNAUS helps AI companies produce audit-ready compliance evidence. We structure and verify the underlying proof so audits become reproducible instead of narrative-based."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://cnaus.org"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="CNAUS — Verifiable AI Compliance Evidence"/>
+  <meta name="twitter:description" content="CNAUS helps AI companies produce audit-ready compliance evidence. We structure and verify the underlying proof so audits become reproducible instead of narrative-based."/>
+  <link rel="canonical" href="https://cnaus.org"/>
+  <title>CNAUS — Verifiable AI Compliance Evidence</title>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -515,34 +523,20 @@
     @media (max-width: 860px) {
       nav { padding: 0 1.2rem; }
       .nav-links { display: none; }
-
-      .hero {
-        grid-template-columns: 1fr; gap: 2.5rem;
-        padding: 7.5rem 1.2rem 3.5rem;
-      }
-
+      .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 7.5rem 1.2rem 3.5rem; }
       .hero-card { display: none; }
-
       .hero h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
-
       .hero-sub, .hero-sub2 { max-width: 100%; }
-
       .hero-btns { flex-direction: column; }
       .btn { text-align: center; width: 100%; }
-
       .sec { padding: 3.5rem 1.2rem; }
-
       .two-col { grid-template-columns: 1fr; gap: 2rem; }
-
       .products-grid, .use-grid { grid-template-columns: 1fr; }
       .prod-card, .use-card { border-right: none; }
-
       .steps-row { grid-template-columns: 1fr; border: 1px solid var(--border); }
       .step-c { border-right: none; border-bottom: 1px solid var(--border); }
       .step-c:last-child { border-bottom: none; }
-
       .ss-inner { padding: 0 1.2rem; overflow-x: auto; }
-
       .foot-inner { flex-direction: column; gap: 0.8rem; text-align: center; }
       .foot-links { display: none; }
     }
@@ -561,7 +555,7 @@
     <li><a href="#deliverables">Deliverables</a></li>
     <li><a href="#core">CNAUS Core</a></li>
     <li><a href="#use-cases">Use Cases</a></li>
-    <li><a href="https://github.com/cnaus-system/" target="_blank">GitHub ↗</a></li>
+    <li><a href="https://github.com/cnaus-system/registry-core/releases/tag/v1.0.14" target="_blank">GitHub ↗</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
@@ -570,14 +564,14 @@
 <section style="border-bottom: 1px solid var(--border);">
   <div class="hero">
     <div>
-      <div class="hero-label">AI Governance Evidence System</div>
-      <h1>AI Governance Evidence.<br/><em>Structured.<br/>Verifiable.</em><br/>Not scattered.</h1>
-      <p class="hero-sub">CNAUS turns AI tool documentation, vendor-risk answers, and governance evidence into structured evidence bundles, validation reports, and reproducible verification steps.</p>
-      <p class="hero-sub2">Built as an open-core conformance system for AI governance, vendor-risk, and audit-readiness workflows.</p>
+      <div class="hero-label">Verifiable AI Compliance Evidence</div>
+      <h1>Audit-ready AI compliance evidence.<br/><em>Structured.<br/>Verifiable.</em><br/>Reproducible.</h1>
+      <p class="hero-sub">CNAUS helps AI companies produce audit-ready compliance evidence. We structure and verify the underlying proof so audits become reproducible instead of narrative-based.</p>
+      <p class="hero-sub2">A verifiable evidence layer for AI compliance — delivered as a structured service, built on an open conformance core.</p>
       <div class="hero-btns">
-        <a href="#deliverables" class="btn btn-dark">View Example Output</a>
-        <a href="#contact" class="btn btn-border">Request Evidence Sprint</a>
-        <a href="https://github.com/cnaus-system/" target="_blank" class="btn btn-border">Explore GitHub ↗</a>
+        <a href="#contact" class="btn btn-dark">Request Evidence Sprint</a>
+        <a href="#deliverables" class="btn btn-border">View Example Output</a>
+        <a href="https://github.com/cnaus-system/registry-core/releases/tag/v1.0.14" target="_blank" class="btn btn-border">Explore GitHub ↗</a>
       </div>
     </div>
 
@@ -591,7 +585,7 @@
         <div class="hc-row"><span class="hc-key">conformance-pack</span><span class="hc-pub">PUBLIC</span></div>
         <div class="hc-row"><span class="hc-key">validator</span><span class="hc-pub">AVAILABLE</span></div>
         <div class="hc-row"><span class="hc-key">proof-feed</span><span class="hc-pub">VALID</span></div>
-        <div class="hc-row"><span class="hc-key">adoption-pack</span><span class="hc-val">v0.1.0</span></div>
+        <div class="hc-row"><span class="hc-key">adoption-pack</span><span class="hc-val">v0.1.1</span></div>
         <div class="hc-row"><span class="hc-key">operator layer</span><span class="hc-later">LATER</span></div>
       </div>
     </div>
@@ -605,7 +599,7 @@
     <div class="ss-cell"><strong>conformance-pack</strong> <span class="ss-pub">PUBLIC</span></div>
     <div class="ss-cell"><strong>validator</strong> <span class="ss-pub">AVAILABLE</span></div>
     <div class="ss-cell"><strong>proof-feed</strong> <span class="ss-pub">VALID</span></div>
-    <div class="ss-cell"><strong>adoption-pack</strong> v0.1.0</div>
+    <div class="ss-cell"><strong>adoption-pack</strong> v0.1.1</div>
     <div class="ss-cell"><strong>operator</strong> LATER</div>
   </div>
 </div>
@@ -613,20 +607,20 @@
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <div class="t-item"><span>◆</span> Open Conformance Core</div>
-    <div class="t-item"><span>◆</span> Machine-Readable Evidence</div>
+    <div class="t-item"><span>◆</span> Verifiable AI Compliance Evidence</div>
+    <div class="t-item"><span>◆</span> Audit-Ready Evidence Bundles</div>
     <div class="t-item"><span>◆</span> Reproducible Verification</div>
     <div class="t-item"><span>◆</span> PASS/FAIL Conformance Logic</div>
     <div class="t-item"><span>◆</span> Hash-Chain Proof Feed</div>
-    <div class="t-item"><span>◆</span> Audit-Readiness Workflows</div>
+    <div class="t-item"><span>◆</span> Evidence Sprint · 7–14 Days</div>
     <div class="t-item"><span>◆</span> Written-First Delivery</div>
     <div class="t-item"><span>◆</span> RFC0001–RFC0003</div>
-    <div class="t-item"><span>◆</span> Open Conformance Core</div>
-    <div class="t-item"><span>◆</span> Machine-Readable Evidence</div>
+    <div class="t-item"><span>◆</span> Verifiable AI Compliance Evidence</div>
+    <div class="t-item"><span>◆</span> Audit-Ready Evidence Bundles</div>
     <div class="t-item"><span>◆</span> Reproducible Verification</div>
     <div class="t-item"><span>◆</span> PASS/FAIL Conformance Logic</div>
     <div class="t-item"><span>◆</span> Hash-Chain Proof Feed</div>
-    <div class="t-item"><span>◆</span> Audit-Readiness Workflows</div>
+    <div class="t-item"><span>◆</span> Evidence Sprint · 7–14 Days</div>
     <div class="t-item"><span>◆</span> Written-First Delivery</div>
     <div class="t-item"><span>◆</span> RFC0001–RFC0003</div>
   </div>
@@ -637,15 +631,15 @@
   <div class="sec-label">The Problem</div>
   <div class="two-col">
     <div>
-      <h2>AI governance evidence is usually <em>scattered.</em></h2>
-      <p class="body-copy" style="margin-bottom: 1rem;">PDFs, spreadsheets, emails, vendor answers, screenshots, and informal notes. When governance questions arise — from procurement, internal audit, or external review — teams struggle to produce structured, reproducible evidence.</p>
-      <p class="body-copy">CNAUS structures that evidence into a reproducible format, from intake to verifiable output that any third party can independently review.</p>
+      <h2>AI compliance evidence is usually <em>not reproducible.</em></h2>
+      <p class="body-copy" style="margin-bottom: 1rem;">Documentation exists — but it is fragmented, inconsistent between versions, and impossible to verify independently. When audits arrive, teams reconstruct evidence manually. The result is a narrative, not a verifiable check.</p>
+      <p class="body-copy">CNAUS structures compliance evidence into reproducible, verifiable proof — from intake to a complete evidence bundle any third party can independently validate.</p>
     </div>
     <div class="flow-chain">
-      <div class="flow-row"><span class="flow-arrow">→</span> AI tool documentation</div>
-      <div class="flow-row"><span class="flow-arrow">→</span> Vendor-risk answers</div>
+      <div class="flow-row"><span class="flow-arrow">→</span> AI system artifacts</div>
+      <div class="flow-row"><span class="flow-arrow">→</span> Compliance claims</div>
       <div class="flow-row"><span class="flow-arrow">→</span> Risk context &amp; controls</div>
-      <div class="flow-row"><span class="flow-arrow">→</span> Evidence files</div>
+      <div class="flow-row"><span class="flow-arrow">→</span> Structured evidence files</div>
       <div class="flow-row"><span class="flow-arrow">→</span> Machine-readable record</div>
       <div class="flow-row"><span class="flow-arrow">→</span> Validation report</div>
       <div class="flow-row final"><span class="flow-arrow">✓</span> Verification steps — reproducible by any third party</div>
@@ -676,7 +670,7 @@
       <div class="prod-card">
         <div class="prod-num">Product 02</div>
         <h3>AI Governance Evidence Sprint</h3>
-        <p class="prod-tagline">For teams that need structured AI governance documentation.</p>
+        <p class="prod-tagline">For teams that need structured, verifiable AI compliance evidence.</p>
         <ul class="prod-list">
           <li>AI tool register</li>
           <li>Evidence checklist</li>
@@ -746,7 +740,7 @@
       </div>
     </div>
     <div class="ft-cta">
-      <a href="https://github.com/cnaus-system/adoption-pack" target="_blank" class="btn btn-border">View Demo Structure ↗</a>
+      <a href="https://github.com/cnaus-system/adoption-pack/releases/tag/v0.1.1" target="_blank" class="btn btn-border">View Demo Structure ↗</a>
     </div>
   </div>
 </div>
@@ -770,7 +764,7 @@
       <div class="step-c">
         <div class="step-n">03 — Map</div>
         <h4>Risk &amp; Controls</h4>
-        <p>Evidence is mapped to governance, vendor-risk, and audit-readiness requirements.</p>
+        <p>Evidence is mapped to compliance requirements, vendor-risk, and audit-readiness criteria.</p>
       </div>
       <div class="step-c">
         <div class="step-n">04 — Validate</div>
@@ -780,7 +774,7 @@
       <div class="step-c">
         <div class="step-n">05 — Deliver</div>
         <h4>Bundle &amp; Report</h4>
-        <p>Management summary, evidence bundle, validation report, and verification steps.</p>
+        <p>Management summary, evidence bundle, validation report, and verification steps. 7–14 days.</p>
       </div>
     </div>
   </div>
@@ -792,15 +786,15 @@
   <div class="two-col">
     <div>
       <h2>The open technical layer <em>behind the products.</em></h2>
-      <p class="body-copy" style="margin-bottom: 1.5rem;">CNAUS Core defines how AI governance evidence can be structured, versioned, validated, and verified. Public so the evidence logic can be inspected and independently reviewed by anyone.</p>
-      <a href="https://github.com/cnaus-system/" target="_blank" class="btn btn-border">View GitHub ↗</a>
+      <p class="body-copy" style="margin-bottom: 1.5rem;">CNAUS Core defines how AI compliance evidence can be structured, versioned, validated, and verified. Public so the evidence logic can be inspected and independently reviewed by anyone.</p>
+      <a href="https://github.com/cnaus-system/registry-core/releases/tag/v1.0.14" target="_blank" class="btn btn-border">View GitHub ↗</a>
     </div>
     <div class="core-table">
       <div class="core-row"><div><div class="core-name">Registry Core</div><div class="core-desc">Base structure for machine-readable evidence records</div></div><span class="c-tag c-pub">Public</span></div>
       <div class="core-row"><div><div class="core-name">Conformance Pack</div><div class="core-desc">Rules and checks for conformance-style validation</div></div><span class="c-tag c-pub">Public</span></div>
       <div class="core-row"><div><div class="core-name">Validator</div><div class="core-desc">Reference logic for PASS/FAIL-style output</div></div><span class="c-tag c-avail">Available</span></div>
       <div class="core-row"><div><div class="core-name">Proof Feed</div><div class="core-desc">Hash-based integrity trail for evidence events</div></div><span class="c-tag c-pub">Public</span></div>
-      <div class="core-row"><div><div class="core-name">Adoption Pack</div><div class="core-desc">Templates, intake forms, SOW, and implementation guidance</div></div><span class="c-tag c-pub">Public</span></div>
+      <div class="core-row"><div><div class="core-name">Adoption Pack</div><div class="core-desc">Templates, intake forms, and implementation guidance</div></div><span class="c-tag c-pub">Public</span></div>
       <div class="core-row"><div><div class="core-name">Operator Layer</div><div class="core-desc">Hosted registry and validator services — planned</div></div><span class="c-tag c-later">Later</span></div>
     </div>
   </div>
@@ -813,24 +807,24 @@
     <h2>Who uses CNAUS <em>products.</em></h2>
     <div class="use-grid">
       <div class="use-card">
-        <h4>Companies Using AI</h4>
-        <p>Create a structured register of AI tools, purposes, data categories, risks, and evidence — ready for internal review or external questions.</p>
+        <h4>AI Companies</h4>
+        <p>Produce verifiable compliance evidence for audits, enterprise procurement, and regulatory review — without manual reconstruction every time.</p>
       </div>
       <div class="use-card">
         <h4>AI Providers</h4>
-        <p>Prepare structured answers for customer due diligence and governance reviews. Deliver evidence bundles instead of PDFs.</p>
+        <p>Respond to customer due diligence with structured evidence bundles instead of static PDFs. Make your compliance claims independently verifiable.</p>
       </div>
       <div class="use-card">
         <h4>Consultants</h4>
-        <p>Use CNAUS as a repeatable delivery format for AI governance evidence across client engagements.</p>
+        <p>Use CNAUS as a repeatable delivery format for AI compliance evidence across client engagements.</p>
       </div>
       <div class="use-card">
         <h4>Compliance &amp; Audit Teams</h4>
-        <p>Review structured evidence instead of scattered PDFs and spreadsheets. Reproducible verification included in every delivery.</p>
+        <p>Review structured, reproducible evidence instead of narrative documentation. Verification steps included in every delivery.</p>
       </div>
     </div>
     <div class="disclaimer">
-      <p><strong>Note:</strong> CNAUS does not provide legal certification and does not replace legal advice, ISO certification, or regulatory assessment. CNAUS provides structured evidence, conformance-style validation, and reproducible documentation workflows that can support governance, vendor-risk, and audit-readiness processes.</p>
+      <p><strong>Note:</strong> CNAUS does not provide legal certification and does not replace legal advice, ISO certification, or regulatory assessment. CNAUS provides structured evidence, conformance-style validation, and reproducible documentation workflows that can support compliance, vendor-risk, and audit-readiness processes.</p>
     </div>
   </div>
 </div>
@@ -840,7 +834,7 @@
   <div class="sec-label">Contact</div>
   <div class="two-col">
     <div>
-      <h2>Request a pilot review or <em>evidence sprint.</em></h2>
+      <h2>Request an Evidence Sprint or <em>pilot review.</em></h2>
       <p class="body-copy" style="margin-bottom: 1rem;">Send a short note with your organisation type, which AI tools or vendors are in scope, and whether you need a tool register, vendor review, or evidence sprint.</p>
       <p class="body-copy">We will respond in writing.</p>
     </div>
@@ -873,10 +867,10 @@
       <li><a href="#products">Products</a></li>
       <li><a href="#deliverables">Deliverables</a></li>
       <li><a href="#core">Core</a></li>
-      <li><a href="https://github.com/cnaus-system/" target="_blank">GitHub ↗</a></li>
+      <li><a href="https://github.com/cnaus-system/registry-core/releases/tag/v1.0.14" target="_blank">GitHub ↗</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="foot-note">Open-core conformance system for AI governance evidence · contact@cnaus.org</div>
+    <div class="foot-note">Verifiable AI compliance evidence · contact@cnaus.org</div>
   </div>
 </footer>
 
