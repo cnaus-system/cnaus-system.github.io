@@ -3,523 +3,148 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="CNAUS helps companies produce audit-ready evidence for their AI tools and systems. We structure and verify the underlying proof so audits become reproducible instead of narrative-based."/>
-  <meta property="og:title" content="CNAUS — Verifiable AI Compliance Evidence"/>
-  <meta property="og:description" content="CNAUS helps companies produce audit-ready evidence for their AI tools and systems. We structure and verify the underlying proof so audits become reproducible instead of narrative-based."/>
+  <meta name="description" content="Open infrastructure for verifiable AI evidence. Registry, validator, proof feed, and conformance — with structured evidence services built on top."/>
+  <meta property="og:title" content="CNAUS — Open Infrastructure for Verifiable AI Evidence"/>
+  <meta property="og:description" content="Open infrastructure for verifiable AI evidence. Registry, validator, proof feed, and conformance — with structured evidence services built on top."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://cnaus.org"/>
   <meta name="twitter:card" content="summary"/>
-  <meta name="twitter:title" content="CNAUS — Verifiable AI Compliance Evidence"/>
-  <meta name="twitter:description" content="CNAUS helps companies produce audit-ready evidence for their AI tools and systems. We structure and verify the underlying proof so audits become reproducible instead of narrative-based."/>
+  <meta name="twitter:title" content="CNAUS — Open Infrastructure for Verifiable AI Evidence"/>
+  <meta name="twitter:description" content="Open infrastructure for verifiable AI evidence. Registry, validator, proof feed, and conformance — with structured evidence services built on top."/>
   <link rel="canonical" href="https://cnaus.org"/>
-  <title>CNAUS — Verifiable AI Compliance Evidence</title>
+  <title>CNAUS — Open Infrastructure for Verifiable AI Evidence</title>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #faf9f5;
-      --bg2: #f2f0ea;
-      --white: #ffffff;
-      --ink: #171717;
-      --ink2: #3f3f3a;
-      --border: #e2ddd6;
-      --border2: #ccc8be;
-      --muted: #8a8780;
-      --muted2: #5a5854;
-      --accent: #1a52a8;
-      --accent-bg: #edf2fb;
-      --accent-border: #bfcfe8;
-      --serif: 'Instrument Serif', Georgia, serif;
-      --mono: 'Geist Mono', monospace;
+      --bg: #faf9f5; --bg2: #f2f0ea; --white: #ffffff; --ink: #171717; --ink2: #3f3f3a;
+      --border: #e2ddd6; --border2: #ccc8be; --muted: #8a8780; --muted2: #5a5854;
+      --accent: #1a52a8; --accent-bg: #edf2fb; --accent-border: #bfcfe8;
+      --serif: 'Instrument Serif', Georgia, serif; --mono: 'Geist Mono', monospace;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--serif);
-      font-weight: 400;
-      min-height: 100vh;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 54px; display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2rem;
-      background: rgba(250,249,245,0.97);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
+    body { background: var(--bg); color: var(--ink); font-family: var(--serif); font-weight: 400; min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 54px; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: rgba(250,249,245,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
     .nav-left { display: flex; align-items: center; gap: 1.2rem; }
-
-    .nav-logo {
-      font-family: var(--mono); font-size: 0.9rem; font-weight: 500;
-      letter-spacing: 0.14em; color: var(--ink);
-    }
-
-    .nav-badge {
-      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--accent);
-      background: var(--accent-bg); border: 1px solid var(--accent-border);
-      padding: 0.18rem 0.6rem;
-    }
-
+    .nav-logo { font-family: var(--mono); font-size: 0.9rem; font-weight: 500; letter-spacing: 0.14em; color: var(--ink); }
+    .nav-badge { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-bg); border: 1px solid var(--accent-border); padding: 0.18rem 0.6rem; }
     .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
-
-    .nav-links a {
-      font-family: var(--mono); font-size: 0.67rem; color: var(--muted);
-      text-decoration: none; letter-spacing: 0.04em; transition: color 0.15s;
-    }
-
+    .nav-links a { font-family: var(--mono); font-size: 0.67rem; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.15s; }
     .nav-links a:hover { color: var(--ink); }
-
-    .nav-cta {
-      font-family: var(--mono); font-size: 0.67rem; font-weight: 500;
-      letter-spacing: 0.06em; padding: 0.48rem 1.1rem;
-      background: var(--ink); color: var(--white);
-      text-decoration: none; transition: background 0.15s;
-    }
-
+    .nav-cta { font-family: var(--mono); font-size: 0.67rem; font-weight: 500; letter-spacing: 0.06em; padding: 0.48rem 1.1rem; background: var(--ink); color: var(--white); text-decoration: none; transition: background 0.15s; }
     .nav-cta:hover { background: var(--accent); }
-
-    /* HERO */
-    .hero {
-      background: var(--bg);
-      padding: 9rem 2rem 5rem;
-      max-width: 1100px; margin: 0 auto;
-      border-bottom: 1px solid var(--border);
-      display: grid; grid-template-columns: 1fr 340px; gap: 5rem; align-items: end;
-    }
-
-    .hero-label {
-      font-family: var(--mono); font-size: 0.63rem; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 1.8rem;
-      display: flex; align-items: center; gap: 0.8rem;
-    }
-
+    .hero { background: var(--bg); padding: 9rem 2rem 5rem; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 340px; gap: 5rem; align-items: end; }
+    .hero-label { font-family: var(--mono); font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.8rem; display: flex; align-items: center; gap: 0.8rem; }
     .hero-label::before { content: ''; width: 18px; height: 1px; background: var(--border2); }
-
-    .hero h1 {
-      font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 400;
-      line-height: 1.1; letter-spacing: -0.02em;
-      color: var(--ink); margin-bottom: 1.8rem;
-    }
-
+    .hero h1 { font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.8rem; }
     .hero h1 em { font-style: italic; color: var(--accent); }
-
-    .hero-sub {
-      font-family: var(--mono); font-size: 0.76rem; line-height: 1.9;
-      color: var(--ink2); max-width: 50ch;
-      letter-spacing: 0.01em; margin-bottom: 0.8rem;
-    }
-
-    .hero-sub2 {
-      font-family: var(--mono); font-size: 0.68rem; line-height: 1.8;
-      color: var(--muted); max-width: 48ch; margin-bottom: 2.5rem;
-    }
-
+    .hero-sub { font-family: var(--mono); font-size: 0.76rem; line-height: 1.9; color: var(--ink2); max-width: 50ch; letter-spacing: 0.01em; margin-bottom: 0.8rem; }
+    .hero-sub2 { font-family: var(--mono); font-size: 0.68rem; line-height: 1.8; color: var(--muted); max-width: 48ch; margin-bottom: 2.5rem; }
     .hero-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-
-    .btn {
-      font-family: var(--mono); font-size: 0.7rem; font-weight: 400;
-      letter-spacing: 0.06em; padding: 0.76rem 1.5rem;
-      text-decoration: none; transition: all 0.15s;
-      display: inline-block; cursor: pointer; border: none;
-    }
-
+    .btn { font-family: var(--mono); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.06em; padding: 0.76rem 1.5rem; text-decoration: none; transition: all 0.15s; display: inline-block; cursor: pointer; border: none; }
     .btn-dark { background: var(--ink); color: var(--white); border: 1px solid var(--ink); }
     .btn-dark:hover { background: var(--accent); border-color: var(--accent); }
-
     .btn-border { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
     .btn-border:hover { background: var(--ink); color: var(--white); }
-
-    /* HERO SIDE CARD */
-    .hero-card {
-      border: 1px solid var(--border);
-      background: var(--white); overflow: hidden;
-    }
-
-    .hc-head {
-      background: var(--ink); color: var(--white);
-      padding: 0.9rem 1.4rem;
-      font-family: var(--mono); font-size: 0.6rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-
+    .hero-card { border: 1px solid var(--border); background: var(--white); overflow: hidden; }
+    .hc-head { background: var(--ink); color: var(--white); padding: 0.9rem 1.4rem; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; }
     .hc-ok { color: #82c43c; font-weight: 500; }
-
     .hc-body { padding: 0; }
-
-    .hc-row {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border);
-      font-family: var(--mono); font-size: 0.63rem;
-    }
-
+    .hc-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: 0.63rem; }
     .hc-row:last-child { border-bottom: none; }
     .hc-key { color: var(--muted); }
     .hc-pub { color: var(--accent); font-weight: 500; }
-    .hc-later { color: var(--muted); }
+    .hc-later { color: var(--muted); font-style: italic; }
     .hc-val { color: var(--ink2); }
-
-    /* STATUS STRIP */
-    .status-strip {
-      background: var(--white); border-bottom: 1px solid var(--border); overflow-x: auto;
-    }
-
-    .ss-inner {
-      max-width: 1100px; margin: 0 auto; padding: 0 2rem;
-      display: flex; height: 40px; align-items: stretch;
-    }
-
-    .ss-cell {
-      display: flex; align-items: center; gap: 0.5rem;
-      padding: 0 1.3rem; border-right: 1px solid var(--border);
-      font-family: var(--mono); font-size: 0.6rem;
-      letter-spacing: 0.05em; white-space: nowrap; color: var(--muted);
-    }
-
+    .status-strip { background: var(--white); border-bottom: 1px solid var(--border); overflow-x: auto; }
+    .ss-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: flex; height: 40px; align-items: stretch; }
+    .ss-cell { display: flex; align-items: center; gap: 0.5rem; padding: 0 1.3rem; border-right: 1px solid var(--border); font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.05em; white-space: nowrap; color: var(--muted); }
     .ss-cell:first-child { padding-left: 0; }
     .ss-cell:last-child { border-right: none; }
     .ss-cell strong { color: var(--ink); font-weight: 400; }
     .ss-pub { color: var(--accent); }
-
-    /* TICKER */
-    .ticker {
-      border-bottom: 1px solid var(--border); overflow: hidden;
-      padding: 0.65rem 0; background: var(--bg2);
-    }
-
-    .ticker-track {
-      display: flex; gap: 4rem;
-      animation: ticker 40s linear infinite; white-space: nowrap;
-    }
-
-    .t-item {
-      font-family: var(--mono); font-size: 0.65rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--muted2); flex-shrink: 0;
-    }
-
+    .ss-planned { color: var(--muted); font-style: italic; }
+    .ticker { border-bottom: 1px solid var(--border); overflow: hidden; padding: 0.65rem 0; background: var(--bg2); }
+    .ticker-track { display: flex; gap: 4rem; animation: ticker 40s linear infinite; white-space: nowrap; }
+    .t-item { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted2); flex-shrink: 0; }
     .t-item span { color: var(--accent); margin-right: 0.4rem; }
-
-    /* SECTIONS */
-    .sec {
-      max-width: 1100px; margin: 0 auto;
-      padding: 5rem 2rem; border-bottom: 1px solid var(--border);
-    }
-
+    .sec { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; border-bottom: 1px solid var(--border); }
     .sec-white { background: var(--white); border-bottom: 1px solid var(--border); }
     .sec-warm { background: var(--bg2); border-bottom: 1px solid var(--border); }
-
-    .sec-label {
-      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 2rem;
-    }
-
-    h2 {
-      font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.5rem);
-      font-weight: 400; line-height: 1.2; letter-spacing: -0.02em;
-      color: var(--ink); margin-bottom: 1.2rem;
-    }
-
+    .sec-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; }
+    h2 { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.2rem; }
     h2 em { font-style: italic; }
-
-    .body-copy {
-      font-family: var(--serif); font-size: 1rem;
-      line-height: 1.75; color: var(--ink2); font-weight: 400;
-    }
-
-    /* PROBLEM */
+    .body-copy { font-family: var(--serif); font-size: 1rem; line-height: 1.75; color: var(--ink2); font-weight: 400; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-
-    .flow-chain { border: 1px solid var(--border); background: var(--white); }
-
-    .flow-row {
-      display: flex; align-items: center; gap: 0.9rem;
-      padding: 0.9rem 1.1rem; border-bottom: 1px solid var(--border);
-      font-family: var(--mono); font-size: 0.67rem; color: var(--ink2);
-    }
-
-    .flow-row:last-child { border-bottom: none; }
-    .flow-arrow { color: var(--border2); flex-shrink: 0; }
-    .flow-row.final { background: var(--accent-bg); color: var(--accent); }
-    .flow-row.final .flow-arrow { color: var(--accent); }
-
-    /* PRODUCTS */
-    .products-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 0; border: 1px solid var(--border); margin-top: 2rem;
-    }
-
-    .prod-card {
-      padding: 2.2rem; border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--white); transition: background 0.15s;
-    }
-
+    .infra-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 1px solid var(--border); margin-top: 2rem; }
+    .infra-card { padding: 2rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--white); }
+    .infra-card:nth-child(2n) { border-right: none; }
+    .infra-card:nth-child(3), .infra-card:nth-child(4) { border-bottom: none; }
+    .infra-card.planned { opacity: 0.55; }
+    .infra-tag { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.16rem 0.45rem; margin-bottom: 0.8rem; display: inline-block; }
+    .tag-pub { background: var(--accent-bg); border: 1px solid var(--accent-border); color: var(--accent); }
+    .tag-avail { background: #eef6e8; border: 1px solid #c4deb4; color: #2e6614; }
+    .tag-planned { background: var(--bg2); border: 1px solid var(--border2); color: var(--muted); }
+    .infra-card h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; margin-bottom: 0.4rem; color: var(--ink); }
+    .infra-card p { font-family: var(--mono); font-size: 0.65rem; color: var(--muted2); line-height: 1.7; }
+    .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 1px solid var(--border); margin-top: 2rem; }
+    .prod-card { padding: 2.2rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--white); transition: background 0.15s; }
     .prod-card:hover { background: var(--bg); }
     .prod-card:nth-child(2n) { border-right: none; }
     .prod-card:nth-child(3), .prod-card:nth-child(4) { border-bottom: none; }
-
-    .prod-num {
-      font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 0.7rem;
-    }
-
-    .prod-card h3 {
-      font-family: var(--serif); font-size: 1.05rem; font-weight: 400;
-      margin-bottom: 0.4rem; color: var(--ink); letter-spacing: -0.01em;
-    }
-
-    .prod-tagline {
-      font-family: var(--mono); font-size: 0.65rem; color: var(--muted2);
-      margin-bottom: 1.3rem; line-height: 1.6;
-    }
-
+    .prod-num { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.7rem; }
+    .prod-card h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; margin-bottom: 0.4rem; color: var(--ink); letter-spacing: -0.01em; }
+    .prod-tagline { font-family: var(--mono); font-size: 0.65rem; color: var(--muted2); margin-bottom: 1.3rem; line-height: 1.6; }
     .prod-list { list-style: none; margin-bottom: 1.8rem; }
-
-    .prod-list li {
-      display: flex; gap: 0.7rem; font-family: var(--mono);
-      font-size: 0.64rem; color: var(--ink2); padding: 0.38rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
+    .prod-list li { display: flex; gap: 0.7rem; font-family: var(--mono); font-size: 0.64rem; color: var(--ink2); padding: 0.38rem 0; border-bottom: 1px solid var(--border); }
     .prod-list li:last-child { border-bottom: none; }
     .prod-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; }
-
-    .prod-btn {
-      display: inline-block; font-family: var(--mono); font-size: 0.65rem;
-      letter-spacing: 0.06em; padding: 0.58rem 1.1rem;
-      border: 1px solid var(--ink); color: var(--ink);
-      text-decoration: none; transition: all 0.15s;
-    }
-
+    .prod-btn { display: inline-block; font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.06em; padding: 0.58rem 1.1rem; border: 1px solid var(--ink); color: var(--ink); text-decoration: none; transition: all 0.15s; }
     .prod-btn:hover { background: var(--ink); color: var(--white); }
-
     .prod-card.monitoring { opacity: 0.6; }
-
-    .prod-card.monitoring .prod-num::after {
-      content: ' · Available after initial delivery'; color: var(--muted);
-    }
-
-    /* FILE TREE */
     .ft-outer { margin-top: 2rem; }
-
-    .ft-demo-note {
-      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 0.7rem;
-      display: flex; align-items: center; gap: 0.8rem;
-    }
-
-    .ft-badge-note {
-      background: var(--bg2); border: 1px solid var(--border2);
-      color: var(--muted); padding: 0.13rem 0.5rem;
-      font-size: 0.54rem; letter-spacing: 0.1em;
-    }
-
-    .ft-wrap {
-      background: #141412; border: 1px solid #282826; overflow: hidden;
-    }
-
-    .ft-head {
-      background: #1c1c1a; padding: 0.8rem 1.4rem;
-      border-bottom: 1px solid #282826;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-
+    .ft-demo-note { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.8rem; }
+    .ft-badge-note { background: var(--bg2); border: 1px solid var(--border2); color: var(--muted); padding: 0.13rem 0.5rem; font-size: 0.54rem; letter-spacing: 0.1em; }
+    .ft-wrap { background: #141412; border: 1px solid #282826; overflow: hidden; }
+    .ft-head { background: #1c1c1a; padding: 0.8rem 1.4rem; border-bottom: 1px solid #282826; display: flex; justify-content: space-between; align-items: center; }
     .ft-head-title { font-family: var(--mono); font-size: 0.63rem; color: #686660; }
     .ft-head-pass { font-family: var(--mono); font-size: 0.6rem; color: #82c43c; font-weight: 500; }
-
     .ft-body { padding: 1rem 1.4rem; }
-
     .ft-root { font-family: var(--mono); font-size: 0.68rem; color: #686660; margin-bottom: 0.2rem; }
-
-    .ft-file {
-      display: flex; align-items: center; gap: 0.8rem;
-      padding: 0.42rem 0 0.42rem 1.1rem;
-      border-bottom: 1px solid #222220;
-      font-family: var(--mono); font-size: 0.66rem;
-    }
-
+    .ft-file { display: flex; align-items: center; gap: 0.8rem; padding: 0.42rem 0 0.42rem 1.1rem; border-bottom: 1px solid #222220; font-family: var(--mono); font-size: 0.66rem; }
     .ft-file:last-child { border-bottom: none; }
     .ft-tree { color: #3e3e3a; flex-shrink: 0; font-size: 0.6rem; }
     .ft-name { color: #d0ccc4; flex: 1; }
-
-    .ft-ext {
-      font-size: 0.55rem; letter-spacing: 0.07em; padding: 0.1rem 0.38rem;
-      border: 1px solid #2a2a26; color: #686660; text-transform: uppercase; flex-shrink: 0;
-    }
-
+    .ft-ext { font-size: 0.55rem; letter-spacing: 0.07em; padding: 0.1rem 0.38rem; border: 1px solid #2a2a26; color: #686660; text-transform: uppercase; flex-shrink: 0; }
     .ft-ext.json { border-color: #1e3a5a; color: #7aaad4; }
     .ft-ext.md { border-color: #1e2e4a; color: #7799cc; }
     .ft-ext.txt { border-color: #38362a; color: #a8a888; }
-
     .ft-cta { margin-top: 1.3rem; }
-
-    /* STEPS */
-    .steps-row {
-      display: grid; grid-template-columns: repeat(5, 1fr);
-      gap: 0; border: 1px solid var(--border); margin-top: 2rem;
-    }
-
-    .step-c {
-      padding: 1.8rem 1.4rem; border-right: 1px solid var(--border);
-      background: var(--white);
-    }
-
-    .step-c:last-child { border-right: none; }
-
-    .step-n {
-      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em;
-      color: var(--accent); margin-bottom: 0.8rem; text-transform: uppercase;
-    }
-
-    .step-c h4 {
-      font-family: var(--serif); font-size: 0.95rem; font-weight: 400;
-      margin-bottom: 0.5rem; color: var(--ink);
-    }
-
-    .step-c p {
-      font-family: var(--mono); font-size: 0.65rem;
-      line-height: 1.8; color: var(--muted2);
-    }
-
-    /* CNAUS CORE */
-    .core-table { border: 1px solid var(--border); background: var(--white); }
-
-    .core-row {
-      display: grid; grid-template-columns: 1fr auto;
-      align-items: start; padding: 1rem 1.2rem;
-      border-bottom: 1px solid var(--border); gap: 1rem;
-    }
-
-    .core-row:last-child { border-bottom: none; }
-
-    .core-name { font-family: var(--mono); font-size: 0.68rem; color: var(--ink); margin-bottom: 0.2rem; }
-    .core-desc { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); line-height: 1.5; }
-
-    .c-tag {
-      font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 0.16rem 0.45rem; flex-shrink: 0;
-    }
-
-    .c-pub { background: var(--accent-bg); border: 1px solid var(--accent-border); color: var(--accent); }
-    .c-avail { background: #eef6e8; border: 1px solid #c4deb4; color: #2e6614; }
-    .c-later { background: var(--bg2); border: 1px solid var(--border2); color: var(--muted); }
-
-    /* USE CASES */
-    .use-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 0; border: 1px solid var(--border); margin-top: 2rem;
-    }
-
-    .use-card {
-      padding: 1.8rem; border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border); background: var(--white);
-    }
-
+    .use-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 1px solid var(--border); margin-top: 2rem; }
+    .use-card { padding: 1.8rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--white); }
     .use-card:nth-child(2n) { border-right: none; }
     .use-card:nth-child(3), .use-card:nth-child(4) { border-bottom: none; }
-
-    .use-card h4 {
-      font-family: var(--serif); font-size: 0.98rem; font-weight: 400;
-      margin-bottom: 0.4rem; color: var(--ink);
-    }
-
-    .use-card p {
-      font-family: var(--mono); font-size: 0.65rem;
-      line-height: 1.8; color: var(--muted2);
-    }
-
-    /* DISCLAIMER */
-    .disclaimer {
-      border: 1px solid var(--border); background: var(--bg2);
-      padding: 1.3rem 1.8rem; margin-top: 2.5rem;
-    }
-
-    .disclaimer p {
-      font-family: var(--mono); font-size: 0.64rem;
-      line-height: 1.85; color: var(--muted2);
-    }
-
-    /* CONTACT FORM */
-    .contact-form {
-      border: 1px solid var(--border); background: var(--white); padding: 1.8rem;
-    }
-
-    .form-head {
-      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 1.3rem;
-    }
-
+    .use-card h4 { font-family: var(--serif); font-size: 0.98rem; font-weight: 400; margin-bottom: 0.4rem; color: var(--ink); }
+    .use-card p { font-family: var(--mono); font-size: 0.65rem; line-height: 1.8; color: var(--muted2); }
+    .disclaimer { border: 1px solid var(--border); background: var(--bg2); padding: 1.3rem 1.8rem; margin-top: 2.5rem; }
+    .disclaimer p { font-family: var(--mono); font-size: 0.64rem; line-height: 1.85; color: var(--muted2); }
+    .contact-form { border: 1px solid var(--border); background: var(--white); padding: 1.8rem; }
+    .form-head { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.3rem; }
     .f-group { margin-bottom: 0.9rem; }
-
-    .f-group label {
-      display: block; font-family: var(--mono); font-size: 0.57rem;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
-      margin-bottom: 0.32rem;
-    }
-
-    .f-group input, .f-group select, .f-group textarea {
-      width: 100%; padding: 0.68rem 0.85rem; font-family: var(--mono);
-      font-size: 0.7rem; color: var(--ink); background: var(--bg);
-      border: 1px solid var(--border2); outline: none;
-      transition: border-color 0.15s; appearance: none; resize: vertical;
-    }
-
-    .f-group input:focus, .f-group select:focus, .f-group textarea:focus {
-      border-color: var(--accent);
-    }
-
-    .f-submit {
-      width: 100%; padding: 0.8rem; font-family: var(--mono);
-      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.09em;
-      background: var(--ink); color: var(--white);
-      border: none; cursor: pointer; margin-top: 0.3rem; transition: background 0.15s;
-    }
-
+    .f-group label { display: block; font-family: var(--mono); font-size: 0.57rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.32rem; }
+    .f-group input, .f-group select, .f-group textarea { width: 100%; padding: 0.68rem 0.85rem; font-family: var(--mono); font-size: 0.7rem; color: var(--ink); background: var(--bg); border: 1px solid var(--border2); outline: none; transition: border-color 0.15s; appearance: none; resize: vertical; }
+    .f-group input:focus, .f-group select:focus, .f-group textarea:focus { border-color: var(--accent); }
+    .f-submit { width: 100%; padding: 0.8rem; font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.09em; background: var(--ink); color: var(--white); border: none; cursor: pointer; margin-top: 0.3rem; transition: background 0.15s; }
     .f-submit:hover { background: var(--accent); }
-
-    .f-note {
-      font-family: var(--mono); font-size: 0.56rem; color: var(--muted);
-      margin-top: 0.65rem; text-align: center; line-height: 1.6;
-    }
-
-    /* FOOTER */
+    .f-note { font-family: var(--mono); font-size: 0.56rem; color: var(--muted); margin-top: 0.65rem; text-align: center; line-height: 1.6; }
     footer { border-top: 1px solid var(--border); background: var(--white); }
-
-    .foot-inner {
-      max-width: 1100px; margin: 0 auto; padding: 1.4rem 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-
-    .foot-logo {
-      font-family: var(--mono); font-size: 0.85rem; font-weight: 500;
-      letter-spacing: 0.14em; color: var(--ink);
-    }
-
+    .foot-inner { max-width: 1100px; margin: 0 auto; padding: 1.4rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+    .foot-logo { font-family: var(--mono); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.14em; color: var(--ink); }
     .foot-note { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); }
-
     .foot-links { display: flex; gap: 1.8rem; list-style: none; }
-
-    .foot-links a {
-      font-family: var(--mono); font-size: 0.62rem; color: var(--muted);
-      text-decoration: none; transition: color 0.15s;
-    }
-
+    .foot-links a { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); text-decoration: none; transition: color 0.15s; }
     .foot-links a:hover { color: var(--ink); }
-
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-    /* MOBILE */
     @media (max-width: 860px) {
       nav { padding: 0 1.2rem; }
       .nav-links { display: none; }
@@ -531,12 +156,8 @@
       .btn { text-align: center; width: 100%; }
       .sec { padding: 3.5rem 1.2rem; }
       .two-col { grid-template-columns: 1fr; gap: 2rem; }
-      .products-grid, .use-grid { grid-template-columns: 1fr; }
-      .prod-card, .use-card { border-right: none; }
-      .steps-row { grid-template-columns: 1fr; border: 1px solid var(--border); }
-      .step-c { border-right: none; border-bottom: 1px solid var(--border); }
-      .step-c:last-child { border-bottom: none; }
-      .ss-inner { padding: 0 1.2rem; overflow-x: auto; }
+      .infra-grid, .products-grid, .use-grid { grid-template-columns: 1fr; }
+      .infra-card, .prod-card, .use-card { border-right: none; }
       .foot-inner { flex-direction: column; gap: 0.8rem; text-align: center; }
       .foot-links { display: none; }
     }
@@ -544,37 +165,34 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-left">
     <div class="nav-logo">CNAUS</div>
     <div class="nav-badge">Open Core</div>
   </div>
   <ul class="nav-links">
-    <li><a href="#products">Products</a></li>
-    <li><a href="#deliverables">Deliverables</a></li>
-    <li><a href="#core">CNAUS Core</a></li>
+    <li><a href="#infrastructure">Infrastructure</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#deliverables">Example Output</a></li>
     <li><a href="#use-cases">Use Cases</a></li>
     <li><a href="https://github.com/cnaus-system" target="_blank">GitHub ↗</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section style="border-bottom: 1px solid var(--border);">
   <div class="hero">
     <div>
-      <div class="hero-label">Verifiable AI Compliance Evidence</div>
-      <h1>Audit-ready AI compliance evidence.<br/><em>Structured.<br/>Verifiable.</em><br/>Reproducible.</h1>
-      <p class="hero-sub">CNAUS helps companies produce audit-ready evidence for their AI tools and systems. We structure and verify the underlying proof so audits become reproducible instead of narrative-based.</p>
-      <p class="hero-sub2">A verifiable evidence layer for AI compliance — delivered as a structured service, built on an open conformance core.</p>
+      <div class="hero-label">Open Infrastructure for Verifiable AI Evidence</div>
+      <h1>AI evidence.<br/><em>Structured.<br/>Verifiable.</em><br/>Reproducible.</h1>
+      <p class="hero-sub">CNAUS is an open infrastructure for structuring and verifying AI governance evidence — registry, proof feed, validator, and conformance logic. Built as an open-core standard.</p>
+      <p class="hero-sub2">Evidence services for governance, vendor risk, and audit readiness are built on top of the core infrastructure.</p>
       <div class="hero-btns">
-        <a href="#contact" class="btn btn-dark">Request Evidence Sprint</a>
-        <a href="#deliverables" class="btn btn-border">View Example Output</a>
-        <a href="https://github.com/cnaus-system" target="_blank" class="btn btn-border">Explore GitHub ↗</a>
+        <a href="#infrastructure" class="btn btn-dark">Explore the Infrastructure</a>
+        <a href="#services" class="btn btn-border">View Evidence Services</a>
+        <a href="https://github.com/cnaus-system" target="_blank" class="btn btn-border">GitHub ↗</a>
       </div>
     </div>
-
     <div class="hero-card">
       <div class="hc-head">
         <span>CNAUS Core Status</span>
@@ -585,38 +203,36 @@
         <div class="hc-row"><span class="hc-key">conformance-pack</span><span class="hc-pub">PUBLIC</span></div>
         <div class="hc-row"><span class="hc-key">validator</span><span class="hc-pub">AVAILABLE</span></div>
         <div class="hc-row"><span class="hc-key">proof-feed</span><span class="hc-pub">VALID</span></div>
-        <div class="hc-row"><span class="hc-key">adoption-pack</span><span class="hc-val">v0.1.1</span></div>
-        <div class="hc-row"><span class="hc-key">operator layer</span><span class="hc-later">LATER</span></div>
+        <div class="hc-row"><span class="hc-key">adoption-pack</span><span class="hc-val">v0.1.2</span></div>
+        <div class="hc-row"><span class="hc-key">operator layer</span><span class="hc-later">Private MVP</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STATUS STRIP -->
 <div class="status-strip">
   <div class="ss-inner">
     <div class="ss-cell"><strong>registry-core</strong> <span class="ss-pub">PUBLIC</span></div>
     <div class="ss-cell"><strong>conformance-pack</strong> <span class="ss-pub">PUBLIC</span></div>
     <div class="ss-cell"><strong>validator</strong> <span class="ss-pub">AVAILABLE</span></div>
     <div class="ss-cell"><strong>proof-feed</strong> <span class="ss-pub">VALID</span></div>
-    <div class="ss-cell"><strong>adoption-pack</strong> v0.1.1</div>
-    <div class="ss-cell"><strong>operator</strong> LATER</div>
+    <div class="ss-cell"><strong>adoption-pack</strong> v0.1.2</div>
+    <div class="ss-cell"><strong>operator layer</strong> <span class="ss-planned">private MVP</span></div>
   </div>
 </div>
 
-<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <div class="t-item"><span>◆</span> Verifiable AI Compliance Evidence</div>
-    <div class="t-item"><span>◆</span> Audit-Ready Evidence Bundles</div>
+    <div class="t-item"><span>◆</span> Open Conformance Core</div>
+    <div class="t-item"><span>◆</span> Machine-Readable Evidence</div>
     <div class="t-item"><span>◆</span> Reproducible Verification</div>
     <div class="t-item"><span>◆</span> PASS/FAIL Conformance Logic</div>
     <div class="t-item"><span>◆</span> Hash-Chain Proof Feed</div>
     <div class="t-item"><span>◆</span> Evidence Sprint · 7–14 Days</div>
     <div class="t-item"><span>◆</span> Written-First Delivery</div>
     <div class="t-item"><span>◆</span> RFC0001–RFC0003</div>
-    <div class="t-item"><span>◆</span> Verifiable AI Compliance Evidence</div>
-    <div class="t-item"><span>◆</span> Audit-Ready Evidence Bundles</div>
+    <div class="t-item"><span>◆</span> Open Conformance Core</div>
+    <div class="t-item"><span>◆</span> Machine-Readable Evidence</div>
     <div class="t-item"><span>◆</span> Reproducible Verification</div>
     <div class="t-item"><span>◆</span> PASS/FAIL Conformance Logic</div>
     <div class="t-item"><span>◆</span> Hash-Chain Proof Feed</div>
@@ -626,51 +242,65 @@
   </div>
 </div>
 
-<!-- PROBLEM -->
-<div class="sec" id="problem">
-  <div class="sec-label">The Problem</div>
+<!-- INFRASTRUCTURE -->
+<div class="sec" id="infrastructure">
+  <div class="sec-label">Infrastructure</div>
   <div class="two-col">
     <div>
-      <h2>When the auditor asks — <em>where is the proof?</em></h2>
-      <p class="body-copy" style="margin-bottom: 1rem;">Most organisations cannot answer: Which AI tools are approved? Who owns them? What data can they access? When the auditor asks, teams spend weeks reconstructing evidence that should already exist.</p>
-      <p class="body-copy">CNAUS structures that evidence before the auditor arrives — into a reproducible, verifiable bundle that any third party can independently check.</p>
+      <h2>Open infrastructure for <em>verifiable evidence.</em></h2>
+      <p class="body-copy" style="margin-bottom: 1rem;">CNAUS defines how AI governance evidence can be structured, versioned, validated, and verified. The core is public — so the logic can be inspected and independently reviewed by anyone.</p>
+      <p class="body-copy" style="margin-bottom: 1.5rem;">Evidence services — sprints, vendor packs, registers — are built on top of this infrastructure.</p>
+      <a href="https://github.com/cnaus-system/registry-core" target="_blank" class="btn btn-border">View registry-core ↗</a>
     </div>
-    <div class="flow-chain">
-      <div class="flow-row"><span class="flow-arrow">→</span> AI system artifacts</div>
-      <div class="flow-row"><span class="flow-arrow">→</span> Compliance claims</div>
-      <div class="flow-row"><span class="flow-arrow">→</span> Risk context &amp; controls</div>
-      <div class="flow-row"><span class="flow-arrow">→</span> Structured evidence files</div>
-      <div class="flow-row"><span class="flow-arrow">→</span> Machine-readable record</div>
-      <div class="flow-row"><span class="flow-arrow">→</span> Validation report</div>
-      <div class="flow-row final"><span class="flow-arrow">✓</span> Verification steps — reproducible by any third party</div>
+    <div class="infra-grid" style="border: none; margin-top: 0;">
+      <div style="border: 1px solid var(--border); background: var(--white); padding: 1.4rem; margin-bottom: -1px; margin-right: -1px;">
+        <div style="font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--accent-bg); border: 1px solid var(--accent-border); color: var(--accent); padding: 0.16rem 0.45rem; display: inline-block; margin-bottom: 0.6rem;">Public</div>
+        <div style="font-family: var(--mono); font-size: 0.68rem; color: var(--ink); margin-bottom: 0.2rem;">Registry Core</div>
+        <div style="font-family: var(--mono); font-size: 0.6rem; color: var(--muted); line-height: 1.5;">Base structure for machine-readable evidence records. RFC0001–RFC0003.</div>
+      </div>
+      <div style="border: 1px solid var(--border); background: var(--white); padding: 1.4rem; margin-bottom: -1px;">
+        <div style="font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--accent-bg); border: 1px solid var(--accent-border); color: var(--accent); padding: 0.16rem 0.45rem; display: inline-block; margin-bottom: 0.6rem;">Public</div>
+        <div style="font-family: var(--mono); font-size: 0.68rem; color: var(--ink); margin-bottom: 0.2rem;">Proof Feed</div>
+        <div style="font-family: var(--mono); font-size: 0.6rem; color: var(--muted); line-height: 1.5;">Hash-based integrity trail for evidence events. Append-only.</div>
+      </div>
+      <div style="border: 1px solid var(--border); background: var(--white); padding: 1.4rem; margin-right: -1px;">
+        <div style="font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.1em; text-transform: uppercase; background: #eef6e8; border: 1px solid #c4deb4; color: #2e6614; padding: 0.16rem 0.45rem; display: inline-block; margin-bottom: 0.6rem;">Available</div>
+        <div style="font-family: var(--mono); font-size: 0.68rem; color: var(--ink); margin-bottom: 0.2rem;">Validator</div>
+        <div style="font-family: var(--mono); font-size: 0.6rem; color: var(--muted); line-height: 1.5;">Reference logic for PASS/FAIL conformance output.</div>
+      </div>
+      <div style="border: 1px solid var(--border); background: var(--white); padding: 1.4rem; opacity: 0.6;">
+        <div style="font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--bg2); border: 1px solid var(--border2); color: var(--muted); padding: 0.16rem 0.45rem; display: inline-block; margin-bottom: 0.6rem;">Private MVP</div>
+        <div style="font-family: var(--mono); font-size: 0.68rem; color: var(--ink); margin-bottom: 0.2rem;">Operator / API Layer</div>
+        <div style="font-family: var(--mono); font-size: 0.6rem; color: var(--muted); line-height: 1.5;">Hosted registry, API access, and operator services. In private development.</div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- PRODUCTS -->
-<div class="sec-white" id="products">
+<!-- SERVICES -->
+<div class="sec-white" id="services">
   <div class="sec" style="border-bottom: none;">
-    <div class="sec-label">Products</div>
-    <h2>Four delivery formats. <em>Concrete outputs.</em></h2>
+    <div class="sec-label">Evidence Services</div>
+    <h2>Structured evidence, <em>built on the core.</em></h2>
+    <p class="body-copy" style="max-width: 60ch; margin-bottom: 2rem;">When an auditor asks for AI governance evidence — where is the proof that a tool was approved, reviewed, and documented? These services structure and verify that evidence, producing reproducible output that any third party can independently check.</p>
     <div class="products-grid">
       <div class="prod-card">
-        <div class="prod-num">Product 01</div>
+        <div class="prod-num">Service 01</div>
         <h3>AI Tool Register Quickstart</h3>
         <p class="prod-tagline">For teams that use AI tools but have no structured register.</p>
         <ul class="prod-list">
-          <li>AI tool inventory</li>
-          <li>Purpose and owner per tool</li>
-          <li>Data categories</li>
-          <li>Basic risk view</li>
+          <li>AI tool inventory with owners</li>
+          <li>Purpose and data categories per tool</li>
+          <li>Basic risk view and approval status</li>
           <li>Action list</li>
           <li>Management summary</li>
         </ul>
         <a href="#contact" class="prod-btn">Request Quickstart →</a>
       </div>
       <div class="prod-card">
-        <div class="prod-num">Product 02</div>
+        <div class="prod-num">Service 02</div>
         <h3>AI Governance Evidence Sprint</h3>
-        <p class="prod-tagline">For teams that need structured, verifiable AI compliance evidence.</p>
+        <p class="prod-tagline">For teams that need structured, verifiable AI governance documentation.</p>
         <ul class="prod-list">
           <li>AI tool register</li>
           <li>Evidence checklist</li>
@@ -683,30 +313,29 @@
         <a href="#contact" class="prod-btn">Request Evidence Sprint →</a>
       </div>
       <div class="prod-card">
-        <div class="prod-num">Product 03</div>
+        <div class="prod-num">Service 03</div>
         <h3>Vendor AI Risk Evidence Pack</h3>
         <p class="prod-tagline">For companies reviewing AI vendors, or AI providers responding to customer due diligence.</p>
         <ul class="prod-list">
           <li>Vendor questionnaire</li>
           <li>Evidence requirements</li>
-          <li>Risk findings</li>
-          <li>Decision memo</li>
+          <li>Risk findings and decision memo</li>
           <li>Structured evidence bundle</li>
           <li>CNAUS-compatible evidence record</li>
         </ul>
         <a href="#contact" class="prod-btn">Request Vendor Pack →</a>
       </div>
       <div class="prod-card monitoring">
-        <div class="prod-num">Product 04</div>
-        <h3>Monitoring &amp; Maintenance</h3>
-        <p class="prod-tagline">For teams that need their AI evidence package kept current as tools, vendors, and requirements change.</p>
+        <div class="prod-num">Service 04</div>
+        <h3>Evidence Maintenance</h3>
+        <p class="prod-tagline">For teams that need their AI evidence package kept current as tools and requirements change.</p>
         <ul class="prod-list">
           <li>Monthly or quarterly evidence update</li>
-          <li>New AI tool entries added to register</li>
+          <li>New AI tool entries added</li>
           <li>Updated risk and control notes</li>
           <li>Repeated validation and re-verification</li>
         </ul>
-        <a href="#contact" class="prod-btn">Request Monitoring →</a>
+        <a href="#contact" class="prod-btn">Request Maintenance →</a>
       </div>
     </div>
   </div>
@@ -714,9 +343,9 @@
 
 <!-- DELIVERABLES -->
 <div class="sec" id="deliverables">
-  <div class="sec-label">What You Get</div>
+  <div class="sec-label">Example Output</div>
   <h2>Every delivery produces <em>concrete artifacts.</em></h2>
-  <p class="body-copy" style="max-width: 54ch; margin-bottom: 0;">A structured Evidence Bundle — a folder of named, hashed, and verifiable files. Below is a fictional demonstration package showing the delivery structure.</p>
+  <p class="body-copy" style="max-width: 54ch; margin-bottom: 0;">A structured Evidence Bundle — named, hashed, and verifiable files. Below is a fictional demonstration bundle.</p>
   <div class="ft-outer">
     <div class="ft-demo-note">
       <span>Example Evidence Bundle</span>
@@ -725,77 +354,23 @@
     <div class="ft-wrap">
       <div class="ft-head">
         <span class="ft-head-title">ExampleCo_CNAUS_EvidenceBundle_v1/</span>
-        <span class="ft-head-pass">● Conformance: PASS</span>
+        <span class="ft-head-pass">● Conformance: PASS WITH FINDINGS</span>
       </div>
       <div class="ft-body">
         <div class="ft-root">📁 ExampleCo_CNAUS_EvidenceBundle_v1/</div>
-        <div class="ft-file"><span class="ft-tree">├──</span><span class="ft-name">01_management-summary.pdf</span><span class="ft-ext">PDF</span></div>
-        <div class="ft-file"><span class="ft-tree">├──</span><span class="ft-name">02_ai-tool-register.xlsx</span><span class="ft-ext">XLSX</span></div>
-        <div class="ft-file"><span class="ft-tree">├──</span><span class="ft-name">03_risk-control-mapping.pdf</span><span class="ft-ext">PDF</span></div>
-        <div class="ft-file"><span class="ft-tree">├──</span><span class="ft-name">04_evidence-checklist.pdf</span><span class="ft-ext">PDF</span></div>
+        <div class="ft-file"><span class="ft-tree">├──</span><span class="ft-name">01_management-summary.md</span><span class="ft-ext md">MD</span></div>
+        <div class="ft-file"><span class="ft-tree">├──</span><span class="ft-name">02_ai-tool-register.csv</span><span class="ft-ext">CSV</span></div>
+        <div class="ft-file"><span class="ft-tree">├──</span><span class="ft-name">03_risk-control-mapping.md</span><span class="ft-ext md">MD</span></div>
+        <div class="ft-file"><span class="ft-tree">├──</span><span class="ft-name">04_evidence-checklist.md</span><span class="ft-ext md">MD</span></div>
         <div class="ft-file"><span class="ft-tree">├──</span><span class="ft-name">05_cnaus-record.json</span><span class="ft-ext json">JSON</span></div>
-        <div class="ft-file"><span class="ft-tree">├──</span><span class="ft-name">06_conformance-style-report.pdf</span><span class="ft-ext">PDF</span></div>
+        <div class="ft-file"><span class="ft-tree">├──</span><span class="ft-name">06_conformance-report.md</span><span class="ft-ext md">MD</span></div>
         <div class="ft-file"><span class="ft-tree">├──</span><span class="ft-name">07_sha256-manifest.txt</span><span class="ft-ext txt">TXT</span></div>
-        <div class="ft-file"><span class="ft-tree">└──</span><span class="ft-name">08_verification-steps.md</span><span class="ft-ext md">MD</span></div>
+        <div class="ft-file"><span class="ft-tree">├──</span><span class="ft-name">08_verification-steps.md</span><span class="ft-ext md">MD</span></div>
+        <div class="ft-file"><span class="ft-tree">└──</span><span class="ft-name">09_remediation-plan.md</span><span class="ft-ext md">MD</span></div>
       </div>
     </div>
     <div class="ft-cta">
-      <a href="https://github.com/cnaus-system/adoption-pack/tree/main/examples/ExampleCo_CNAUS_EvidenceBundle_v1" target="_blank" class="btn btn-border">View Demo Structure ↗</a>
-    </div>
-  </div>
-</div>
-
-<!-- HOW IT WORKS -->
-<div class="sec-warm" id="how">
-  <div class="sec" style="border-bottom: none;">
-    <div class="sec-label">How It Works</div>
-    <h2>Five steps. <em>Written-first delivery.</em></h2>
-    <div class="steps-row">
-      <div class="step-c">
-        <div class="step-n">01 — Intake</div>
-        <h4>Identify Scope</h4>
-        <p>AI tools, vendors, data categories, owners, existing documentation. Structured intake form.</p>
-      </div>
-      <div class="step-c">
-        <div class="step-n">02 — Structure</div>
-        <h4>Organise Evidence</h4>
-        <p>Evidence is organised into a standard folder and record structure per CNAUS schemas.</p>
-      </div>
-      <div class="step-c">
-        <div class="step-n">03 — Map</div>
-        <h4>Risk &amp; Controls</h4>
-        <p>Evidence is mapped to compliance requirements, vendor-risk, and audit-readiness criteria.</p>
-      </div>
-      <div class="step-c">
-        <div class="step-n">04 — Validate</div>
-        <h4>Conformance Check</h4>
-        <p>Records are checked against CNAUS conformance logic. PASS/FAIL output per RFC0001–RFC0003.</p>
-      </div>
-      <div class="step-c">
-        <div class="step-n">05 — Deliver</div>
-        <h4>Bundle &amp; Report</h4>
-        <p>Management summary, evidence bundle, validation report, and verification steps. 7–14 days.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CNAUS CORE -->
-<div class="sec" id="core">
-  <div class="sec-label">CNAUS Core</div>
-  <div class="two-col">
-    <div>
-      <h2>The open technical layer <em>behind the products.</em></h2>
-      <p class="body-copy" style="margin-bottom: 1.5rem;">CNAUS Core defines how AI compliance evidence can be structured, versioned, validated, and verified. Public so the evidence logic can be inspected and independently reviewed by anyone.</p>
-      <a href="https://github.com/cnaus-system" target="_blank" class="btn btn-border">View GitHub ↗</a>
-    </div>
-    <div class="core-table">
-      <div class="core-row"><div><div class="core-name">Registry Core</div><div class="core-desc">Base structure for machine-readable evidence records</div></div><span class="c-tag c-pub">Public</span></div>
-      <div class="core-row"><div><div class="core-name">Conformance Pack</div><div class="core-desc">Rules and checks for conformance-style validation</div></div><span class="c-tag c-pub">Public</span></div>
-      <div class="core-row"><div><div class="core-name">Validator</div><div class="core-desc">Reference logic for PASS/FAIL-style output</div></div><span class="c-tag c-avail">Available</span></div>
-      <div class="core-row"><div><div class="core-name">Proof Feed</div><div class="core-desc">Hash-based integrity trail for evidence events</div></div><span class="c-tag c-pub">Public</span></div>
-      <div class="core-row"><div><div class="core-name">Adoption Pack</div><div class="core-desc">Templates, intake forms, and implementation guidance</div></div><span class="c-tag c-pub">Public</span></div>
-      <div class="core-row"><div><div class="core-name">Operator Layer</div><div class="core-desc">Hosted registry and validator services — planned</div></div><span class="c-tag c-later">Later</span></div>
+      <a href="https://github.com/cnaus-system/adoption-pack/tree/main/examples/ExampleCo_CNAUS_EvidenceBundle_v1" target="_blank" class="btn btn-border">View Demo Bundle ↗</a>
     </div>
   </div>
 </div>
@@ -804,27 +379,27 @@
 <div class="sec-white" id="use-cases">
   <div class="sec" style="border-bottom: none;">
     <div class="sec-label">Use Cases</div>
-    <h2>Who uses CNAUS <em>products.</em></h2>
+    <h2>Who uses CNAUS <em>infrastructure and services.</em></h2>
     <div class="use-grid">
       <div class="use-card">
         <h4>Companies Using AI</h4>
-        <p>Produce verifiable compliance evidence for audits, enterprise procurement, and regulatory review — without manual reconstruction every time.</p>
+        <p>Produce verifiable evidence for audits, enterprise procurement, and regulatory review — without manual reconstruction every time an auditor asks.</p>
       </div>
       <div class="use-card">
         <h4>AI Vendors &amp; Providers</h4>
-        <p>Respond to customer due diligence with structured evidence bundles instead of static PDFs. Make your compliance claims independently verifiable.</p>
+        <p>Respond to customer due diligence with structured evidence bundles. Make compliance claims independently verifiable instead of static PDFs.</p>
       </div>
       <div class="use-card">
-        <h4>Consultants</h4>
-        <p>Use CNAUS as a repeatable delivery format for AI compliance evidence across client engagements.</p>
+        <h4>Consultants &amp; GRC Teams</h4>
+        <p>Use CNAUS as a repeatable delivery format for AI governance evidence across client engagements.</p>
       </div>
       <div class="use-card">
-        <h4>Compliance &amp; Audit Teams</h4>
-        <p>Review structured, reproducible evidence instead of narrative documentation. Verification steps included in every delivery.</p>
+        <h4>Developers &amp; Integrators</h4>
+        <p>Build on the open registry core and conformance logic. RFC0001–RFC0003 define the evidence structure. Operator layer in private development.</p>
       </div>
     </div>
     <div class="disclaimer">
-      <p><strong>Note:</strong> CNAUS does not provide legal certification and does not replace legal advice, ISO certification, or regulatory assessment. CNAUS provides structured evidence, conformance-style validation, and reproducible documentation workflows that can support compliance, vendor-risk, and audit-readiness processes.</p>
+      <p><strong>Note:</strong> CNAUS supports structured evidence for governance review and audit-readiness workflows. CNAUS does not provide legal certification and does not replace legal advice, ISO certification, or regulatory assessment.</p>
     </div>
   </div>
 </div>
@@ -834,9 +409,9 @@
   <div class="sec-label">Contact</div>
   <div class="two-col">
     <div>
-      <h2>Request an Evidence Sprint or <em>pilot review.</em></h2>
-      <p class="body-copy" style="margin-bottom: 1rem;">Send a short note with your organisation type, which AI tools or vendors are in scope, and whether you need a tool register, vendor review, or evidence sprint.</p>
-      <p class="body-copy">We will respond in writing.</p>
+      <h2>Request a service or <em>ask about the infrastructure.</em></h2>
+      <p class="body-copy" style="margin-bottom: 1rem;">Send a short note with your organisation type, which AI tools or vendors are in scope, and what you need — a tool register, vendor review, evidence sprint, or a question about the core.</p>
+      <p class="body-copy">We respond in writing.</p>
     </div>
     <div class="contact-form">
       <div class="form-head">Get in Touch</div>
@@ -849,7 +424,8 @@
           <option>AI Tool Register Quickstart</option>
           <option>AI Governance Evidence Sprint</option>
           <option>Vendor AI Risk Evidence Pack</option>
-          <option>Monitoring &amp; Maintenance</option>
+          <option>Evidence Maintenance</option>
+          <option>Question about the infrastructure / API</option>
           <option>Not sure — I need guidance</option>
         </select>
       </div>
@@ -864,13 +440,13 @@
   <div class="foot-inner">
     <div class="foot-logo">CNAUS</div>
     <ul class="foot-links">
-      <li><a href="#products">Products</a></li>
-      <li><a href="#deliverables">Deliverables</a></li>
-      <li><a href="#core">Core</a></li>
+      <li><a href="#infrastructure">Infrastructure</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#deliverables">Example Output</a></li>
       <li><a href="https://github.com/cnaus-system" target="_blank">GitHub ↗</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="foot-note">Verifiable AI compliance evidence · contact@cnaus.org</div>
+    <div class="foot-note">Open infrastructure for verifiable AI evidence · contact@cnaus.org</div>
   </div>
 </footer>
 
